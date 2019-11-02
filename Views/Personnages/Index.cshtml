@@ -1,0 +1,29 @@
+@{
+    List<string> _personnages = new List<string>{
+            "Cra",
+            "Ecaflip",
+            "Eniripsa",
+            "Enutrof",
+            "Feca",
+            "Iop",
+            "Osamodas",
+            "Pandawa",
+            "Sacrieur",
+            "Sadida",
+            "Sram",
+            "Xelor"
+        };
+}
+<p>Classes de personnage</p>
+<br>
+<ul>
+    @foreach(string s in _personnages)
+    {
+        <li>
+            <a asp-controller="Personnages" asp-action="Details" asp-route-class="@s.ToLower()" >@s</a>
+        </li>
+    }
+</ul>
+
+
+

@@ -1,48 +1,167 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Squidofus</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v1.0.0/css/unicons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+            crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Squidofus</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body id="bootstrap-overrides">
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <div class="custom-navbar">
+
+                    <!-- NAVBAR -->
+                    <nav class="navbar navbar-expand navbar-light">
+                        <a class="navbar-brand">
+                            <img src="~/images/logo/squidofus_logo_dark.png" width="30" height="30" alt="Squidofus">
+                            <!-- <a href="https://logomakr.com">Created my free logo at LogoMakr.com</a> -->
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto custom-menu">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Accueil</a>
+                                </li>
+                                <li class="nav-item d-none d-md-block">
+                                    <a class="nav-link" href="#">Bestiaire</a>
+                                </li>
+                                <li class="nav-item d-none d-md-block">
+                                    <a class="nav-link" href="#">Ressources</a>
+                                </li>
+                                <li class="nav-item dropdown d-md-none">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Drop
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Bestiaire</a>
+                                    <a class="dropdown-item" href="#">Ressources</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Items
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Panoplies</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Amulettes</a>
+                                    <a class="dropdown-item" href="#">Anneaux</a>
+                                    <a class="dropdown-item" href="#">Armes</a>
+                                    <a class="dropdown-item" href="#">Bottes</a>
+                                    <a class="dropdown-item" href="#">Capes</a>
+                                    <a class="dropdown-item" href="#">Ceintures</a>
+                                    <a class="dropdown-item" href="#">Coiffes</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Dragodindes</a>
+                                    <a class="dropdown-item" href="#">Familiers</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Dofus</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Classes
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="cra">Cra</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="ecaflip">Ecaflip</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="eniripsa">Eniripsa</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="enutrof">Enutrof</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="feca">Féca</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="iop">Iop</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="osamodas">Osamodas</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="pandawa">Pandawa</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="sacrieur">Sacrieur</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="sadida">Sadida</a>
+                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="sram">Sram</a>
+                                    <a class="dropdown-item" asp-controller="Personnages" asp-action="Details" asp-route-class="xelor">Xélor</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Divers
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Emotes</a>
+                                    <a class="dropdown-item" href="#">Métiers</a>
+                                    <a class="dropdown-item" href="#">Parchemins</a>
+                                    <a class="dropdown-item" href="#">Ressources</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- END OF NAVBAR -->
+
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
+
+        <br />
+
+        <!-- BODY -->
+        <div class="container body-content">
+            <div class="row justify-content-md-center">
+                <div class="col-12 custom-body bg-light">
+                    @RenderBody()
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <!-- END OF BODY -->
+
+        <br />
+
+        <!-- FOOTER -->
+        <div class="container fixed-bottom">
+            <div class="row justify-content-md-center">
+                <footer class="col-12 custom-footer bg-dark">
+                    <div class="row">
+                        <div class="col-10 col-md-auto">
+                            <span>&copy; @DateTime.Now.Year – Squidofus  </span>
+                            <img src="~/images/logo/squidofus_logo_dark.png" class="footer-logo" width="20" height="20" alt="Squidofus">
+                        </div>
+                        <div class="col-md-auto d-none d-md-block">
+                            Bienvenue sur Squidofus ! 
+                        </div>
+                        <div class="col-2 col-lg-1 footer-menu align-self-end ml-auto">
+                            <span class="footer-contact">Contact</span>
+                        </div>
+                    </div>
+                </footer>
+            </div> 
+        </div>
+        <!-- END OF FOOTER -->
+
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Squidofus - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!------------ SCRIPTS ------------>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+            crossorigin="anonymous">
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+            crossorigin="anonymous">
+    </script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @RenderSection("Scripts", required: false)
+    <!-- END OF SCRIPTS -->
 </body>
 </html>

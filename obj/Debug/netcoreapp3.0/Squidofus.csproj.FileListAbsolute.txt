@@ -21,7 +21,6 @@
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.TagHelpers.output.cache
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.RazorCoreGenerate.cache
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Home/Index.cshtml.g.cs
-/Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Home/Privacy.cshtml.g.cs
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Shared/Error.cshtml.g.cs
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
@@ -33,3 +32,6 @@
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.dll
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.pdb
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.csproj.CopyComplete
+/Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Home/About.cshtml.g.cs
+/Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Personnages/Details.cshtml.g.cs
+/Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Personnages/Index.cshtml.g.cs

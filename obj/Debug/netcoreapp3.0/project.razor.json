@@ -14344,6 +14344,16 @@
   "RootNamespace": "Squidofus",
   "Documents": [
     {
+      "FilePath": "Views/Home/About.cshtml",
+      "TargetPath": "Views/Home/About.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Personnages/Details.cshtml",
+      "TargetPath": "Views/Personnages/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -14354,13 +14364,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Home/Privacy.cshtml",
-      "TargetPath": "Views/Home/Privacy.cshtml",
+      "FilePath": "Views/Home/Index.cshtml",
+      "TargetPath": "Views/Home/Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Home/Index.cshtml",
-      "TargetPath": "Views/Home/Index.cshtml",
+      "FilePath": "Views/Personnages/Index.cshtml",
+      "TargetPath": "Views/Personnages/Index.cshtml",
       "FileKind": "mvc"
     },
     {

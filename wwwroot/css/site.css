@@ -1,71 +1,78 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿/* NAVBAR */
+#bootstrap-overrides .custom-navbar {
+  margin-top: 30px;
+  background-color: #BEB997;
+  border-radius: 5px;
+  border: 1px solid rgb(36, 36, 35);
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+#bootstrap-overrides .active a{
+  color: rgb(218, 86, 4) !important; 
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+#bootstrap-overrides .nav-item a{
+  color: black;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+#bootstrap-overrides .nav-item a:hover{
+  color: rgb(218, 86, 4);
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+#bootstrap-overrides .custom-menu {
+  border-left: 1px solid rgb(49, 49, 49);
+  padding-left: 12px;
+  margin-left: 3px;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+.navbar .dropdown-menu { 
+  background-color: #BEB997;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.navbar .dropdown.show a { 
+  background-color: #BEB997;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.dropdown-divider {
+  border-color: #50483A;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+/* END OF NAVBAR */
+
+
+/* BODY */
+
+body { /* Entire website */
+  background-color: rgb(155, 130, 115);
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+#bootstrap-overrides .custom-body {
+  border-radius: 5px;
+  border: 1px solid rgb(36, 36, 35);
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+/* END OF BODY */
+
+
+
+/* FOOTER */
+#bootstrap-overrides .custom-footer {
+  border-radius: 5px 5px 0px 0px;
+  border: 1px solid rgb(36, 36, 35);
+  color: #BEB997;
 }
+
+#bootstrap-overrides .footer-menu {
+  border-radius: 0px 5px 0px 0px;
+  border-left: 1px dashed #BEB997;
+  color: black;
+  background-color: #BEB997;
+}
+
+#bootstrap-overrides .footer-contact {
+  padding-left: -10px;;
+}
+
+#bootstrap-overrides .footer-logo {
+  margin-left: 5px;
+}
+/* END OF FOOTER */
