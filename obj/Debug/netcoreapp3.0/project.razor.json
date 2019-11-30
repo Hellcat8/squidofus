@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/amine/Dev/Squidofus/Squidofus.csproj",
+  "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Squidofus.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14344,48 +14344,48 @@
   "RootNamespace": "Squidofus",
   "Documents": [
     {
-      "FilePath": "Views/Home/About.cshtml",
-      "TargetPath": "Views/Home/About.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Personnages/Details.cshtml",
-      "TargetPath": "Views/Personnages/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/_ViewImports.cshtml",
-      "TargetPath": "Views/_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Home/Index.cshtml",
-      "TargetPath": "Views/Home/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Personnages/Index.cshtml",
-      "TargetPath": "Views/Personnages/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/_ViewStart.cshtml",
-      "TargetPath": "Views/_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/Error.cshtml",
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Shared/Error.cshtml",
       "TargetPath": "Views/Shared/Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Shared/_Layout.cshtml",
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Home/Index.cshtml",
+      "TargetPath": "Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Personnage/Details.cshtml",
+      "TargetPath": "Views/Personnage/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Personnage/Index.cshtml",
+      "TargetPath": "Views/Personnage/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/_ViewImports.cshtml",
+      "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/_ViewStart.cshtml",
+      "TargetPath": "Views/_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Home/About.cshtml",
+      "TargetPath": "Views/Home/About.cshtml",
       "FileKind": "mvc"
     }
   ],

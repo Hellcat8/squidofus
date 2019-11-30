@@ -20,6 +20,7 @@ namespace Squidofus.Controllers
 
         public IActionResult Index()
         {
+            // ViewBag["data"] = _context.
             return View();
         }
 
@@ -33,5 +34,12 @@ namespace Squidofus.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        // GET: api/Teams
+        // [HttpGet]
+        // public IEnumerable<Personnage> GetPersonnages()
+        // {
+        //     return null;
+        // }
     }
 }

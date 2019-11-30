@@ -69,22 +69,23 @@
                                     <a class="dropdown-item" href="#">Dofus</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" asp-controller="Personnage" asp-action="Index" 
+                                        id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Classes
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="cra">Cra</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="ecaflip">Ecaflip</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="eniripsa">Eniripsa</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="enutrof">Enutrof</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="feca">Féca</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="iop">Iop</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="osamodas">Osamodas</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="pandawa">Pandawa</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="sacrieur">Sacrieur</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="sadida">Sadida</a>
-                                    <a class="dropdown-item" asp-controller="personnages" asp-action="Details" asp-route-class="sram">Sram</a>
-                                    <a class="dropdown-item" asp-controller="Personnages" asp-action="Details" asp-route-class="xelor">Xélor</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="cra">Cra</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="ecaflip">Ecaflip</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="eniripsa">Eniripsa</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="enutrof">Enutrof</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="feca">Féca</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="iop">Iop</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="osamodas">Osamodas</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="pandawa">Pandawa</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="sacrieur">Sacrieur</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="sadida">Sadida</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="sram">Sram</a>
+                                    <a class="dropdown-item" asp-controller="Personnage" asp-action="Details" asp-route-classe="xelor">Xélor</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -130,7 +131,7 @@
                             <img src="~/images/logo/squidofus_logo_dark.png" class="footer-logo" width="20" height="20" alt="Squidofus">
                         </div>
                         <div class="col-md-auto d-none d-md-block">
-                            Bienvenue sur Squidofus ! 
+                            Bienvenue sur Squidofus ! (copyright Ankama etc)
                         </div>
                         <div class="col-2 col-lg-1 footer-menu align-self-end ml-auto">
                             <span class="footer-contact">Contact</span>
