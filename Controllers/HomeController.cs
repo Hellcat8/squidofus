@@ -20,7 +20,7 @@ namespace Squidofus.Controllers
 
         public IActionResult Index()
         {
-            // ViewBag["data"] = _context.
+            
             return View();
         }
 

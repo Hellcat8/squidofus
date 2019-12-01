@@ -55,14 +55,6 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.18, )"
-            },
-            "MySql.Data.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.18, )"
-            },
             "MySql.Data.EntityFrameworkCore.Design": {
               "target": "Package",
               "version": "[8.0.18, )"

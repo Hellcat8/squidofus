@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Squidofus.Models
 {
-    public partial class squidofusContext : DbContext
+    public partial class SquidofusContext : DbContext
     {
-        public squidofusContext()
+        public SquidofusContext()
         {
         }
 
-        public squidofusContext(DbContextOptions<squidofusContext> options)
+        public SquidofusContext(DbContextOptions<SquidofusContext> options)
             : base(options)
         {
         }
