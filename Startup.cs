@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Squidofus.Models;
 
 namespace Squidofus
 {
@@ -26,6 +27,8 @@ namespace Squidofus
             services.AddRouting(options => options.LowercaseUrls = true);
 
             services.AddControllersWithViews();
+
+            services.AddScoped<SquidofusContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +59,7 @@ namespace Squidofus
 
                 endpoints.MapControllerRoute(
                     name: "Classe", 
-                    pattern: "{controller=Personnage}/{action=Details}/{classe?}");
+                    pattern: "{controller=Personnage}/{action=Details}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "ClasseList", 

@@ -1,39 +1,200 @@
+@model Squidofus.ViewModels.PersonnageViewModel
 @{
-    ViewData["Title"] = $"Personnages - {System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Context.Request.Query["classe"])}";
+    ViewData["Title"] = $"{Model.Class.Name} - Personnages";
+    string classe_lowered = Model.Class.Name.ToLower();
+    string classe_title = Model.ClassDetail.Where(x => x.Keyword == "title").FirstOrDefault()?.Detail;
+    string classe_details_ini = Model.ClassDetail.Where(x => x.Keyword == "ini").FirstOrDefault()?.Detail;
 }
-Classe : @Context.Request.Query["classe"]
-<br>
-<br>
-<div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 
-    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
-    but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions 
-    of Lorem Ipsum.
+<!-- TITLE -->
+<div class="row justify-content-sm-center">
+    <div class="col-2 col-md-auto">
+        <img src="~/images/classes/@(classe_lowered)/pic_@(classe_lowered).gif" alt="@(classe_title)">
+    </div>
+    <div class="col-10 col-sm-auto custom-personnage-title">
+        <h2>@(classe_title)</h2>
+    </div>
+</div>
+<hr>
+<!-- END OF TITLE -->
+<br />
+<!-- INTRO -->
+<div class="row">
+    <div class="col">
+        <p class="text-justify">
+            @(Model.ClassDetail.Where(x => x.Keyword == "intro").FirstOrDefault()?.Detail)
+        </p>
+    </div>
+</div>
+<!-- END OF INTRO -->
 
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 
-'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors 
-now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
-Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+<!-- SUMMARY + CARAC P1 + IMG 1 -->
+<div class="row">
+    <div class="col-lg-4 align-self-center order-lg-12">
+        <!-- img class : auto center -->
+        <img class="d-block mx-auto mx-lg-0" src="~/images/classes/@(classe_lowered)/@(classe_lowered)_bg.jpg" 
+            alt="@(classe_title)" width="288" height="320">
+    </div>
+    <div class="col-lg-8 order-lg-1">
+        <p>
+            <div class="card bg-light">
+                <div class="card-header">
+                    <strong>Informations</strong>
+                </div>
+                <ul class="custom-personnage-infos-content">
+                    <li>
+                        <strong>Spécialité : </strong>@(Model.ClassDetail.Where(x => x.Keyword == "specialite").FirstOrDefault()?.Detail)
+                    </li>
+                    <li>
+                        <strong>Armes : </strong>@(Model.ClassDetail.Where(x => x.Keyword == "armes").FirstOrDefault()?.Detail)
+                    </li>
+                    <li>
+                        <strong>Caractéristiques de base :</strong>
+                        <ul style="list-style-type:none; padding: 0;">
+                            <li>
+                                <div class="custom-personnage-infos-caracs">
+                                    <img src="~/images/icons/pv.png" alt="Points de Vie (PdV)">
+                                </div>
+                                <strong>
+                                    @(Model.ClassDetail.Where(x => x.Keyword == "pdv").FirstOrDefault()?.Detail)
+                                </strong> 
+                                Points de Vie (PdV)
+                            </li>
+                            <li>
+                                <div class="custom-personnage-infos-caracs">
+                                    <img src="~/images/icons/pa.png" alt="Points d'Action (PA)'">
+                                </div>
+                                <strong>
+                                    @(Model.ClassDetail.Where(x => x.Keyword == "pa").FirstOrDefault()?.Detail)
+                                </strong>
+                                Points d'Action (PA)
+                            </li>
+                            <li>
+                                <div class="custom-personnage-infos-caracs">
+                                    <img src="~/images/icons/pm.png" alt="Points de Mouvement (PM)">
+                                </div>
+                                <strong>
+                                    @(Model.ClassDetail.Where(x => x.Keyword == "pm").FirstOrDefault()?.Detail)
+                                </strong>
+                                Points de Mouvement (PM)
+                            </li>
+                            <li>
+                                <div class="custom-personnage-infos-caracs">
+                                    <img src="~/images/icons/initiative.png" alt="Initiative (ini)">
+                                </div>
+                                <strong>
+                                    @(classe_details_ini)
+                                </strong>
+                                @if(Convert.ToInt32(classe_details_ini) <= 1) 
+                                {
+                                    <span>Point</span>
+                                }
+                                else
+                                {
+                                    <span>Points</span>
+                                }
+                                d'Initiative (ini)
+                            </li>
+                            <li>
+                                <div class="custom-personnage-infos-caracs">
+                                    <img src="~/images/icons/prospection.png" alt="Prospection (PP)">
+                                </div>
+                                <strong>
+                                    @(Model.ClassDetail.Where(x => x.Keyword == "pp").FirstOrDefault()?.Detail)
+                                </strong>
+                                Points de Prospection (PP)
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </p>
+        <br />
+        <p class="text-justify">
+            @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p1").FirstOrDefault()?.Detail)
+        </p>
+    </div>
+</div>
+<!-- END OF SUMMARY + CARAC P1 + IMG 1 -->
 
+<!-- CARACS P2-P4 -->
+<div class="row">
+    <div class="col">
+        <p class="text-justify">
+            @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p2").FirstOrDefault()?.Detail)
+            <br />
+            @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p3").FirstOrDefault()?.Detail)
+        </p>
+        <p class="text-justify">
+            @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p4").FirstOrDefault()?.Detail)
+        </p>
+    </div>
+</div>
+<!-- END OF CARACS P2-P4 -->
 
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
-making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the 
-more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, 
-discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" 
-(The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. 
-The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 
-"de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 
-1914 translation by H. Rackham.
-
-Where can I get some?
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, 
-by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, 
-you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet 
-tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 
-200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. 
-The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</div>
+<!-- CARACS TABLE + IMG 2 + CARACS P6 -->
+<div class="row justify-content-lg-center">
+    <div class="col-xl-8 align-self-center order-xl-2 order-1">
+        <table class="table table-hover table-bordered">
+            <caption>Coût en points par Caractéristique</caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center table-secondary">
+                        <img src="~/images/logo/squidofus_logo_dark.png" width="20" height="20" alt="Squidofus">
+                    </th>
+                    <th scope="col" class="text-center table-secondary">1 pour 1</th>
+                    <th scope="col" class="text-center table-secondary">2 pour 1</th>
+                    <th scope="col" class="text-center table-secondary">3 pour 1</th>
+                    <th scope="col" class="text-center table-secondary">4 pour 1</th>
+                    <th scope="col" class="text-center table-secondary">5 pour 1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="text-center table-secondary" style="color: #875408;">Force</th>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_force1").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_force2").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_force3").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_force4").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_force5").FirstOrDefault()?.Detail)</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center table-secondary" style="color: #d10a0a;">Intelligence</th>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_intel1").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_intel2").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_intel3").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_intel4").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_intel5").FirstOrDefault()?.Detail)</td>
+                </tr>
+                <tr>
+                    <th class="text-center table-secondary" scope="row" style="color: #0a8ed1;">Chance</th>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_cha1").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_cha2").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_cha3").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_cha4").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_cha5").FirstOrDefault()?.Detail)</td>
+                </tr>
+                <tr>
+                    <th class="text-center table-secondary" scope="row" style="color: #5da80d;">Agilité</th>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_agi1").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_agi2").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_agi3").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_agi4").FirstOrDefault()?.Detail)</td>
+                    <td class="text-center">@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p5_agi5").FirstOrDefault()?.Detail)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-auto align-self-center order-xl-1 order-3">
+        <!-- img class : auto center -->
+        <img class="d-block mx-auto mx-lg-0" src="~/images/classes/@(classe_lowered)/general_@(classe_lowered).jpg" 
+            alt="@(classe_title)" width="233" height="311">
+    </div>
+    <div class="col-12 order-xl-3 order-2">
+        <p class="text-justify">
+            @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p6").FirstOrDefault()?.Detail)
+            <br />
+            @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p7").FirstOrDefault()?.Detail)
+        </p>
+    </div>
+</div>
+<!-- END OF CARACS TABLE + IMG 2 + CARACS P6 -->

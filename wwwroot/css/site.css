@@ -48,6 +48,9 @@ body { /* Entire website */
 #bootstrap-overrides .custom-body {
   border-radius: 5px;
   border: 1px solid rgb(36, 36, 35);
+  padding-top: 20px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
 }
 
 /* END OF BODY */
@@ -76,3 +79,22 @@ body { /* Entire website */
   margin-left: 5px;
 }
 /* END OF FOOTER */
+
+/******************************************/
+
+/* PERSONNAGES DETAILS */
+#bootstrap-overrides .custom-personnage-title {
+  padding-top: 13px;
+}
+
+#bootstrap-overrides .custom-personnage-infos-content {
+  margin-top: 10px;
+}
+
+#bootstrap-overrides .custom-personnage-infos-caracs {
+  width: 20px; 
+  display: inline-block;
+}
+
+
+/* END OF PERSONNAGES DETAILS */

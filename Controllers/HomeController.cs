@@ -20,7 +20,6 @@ namespace Squidofus.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
 
