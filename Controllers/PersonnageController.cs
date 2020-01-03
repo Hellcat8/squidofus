@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Squidofus.Models;
 using Squidofus.ViewModels;
+// using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Squidofus.Controllers
 {
@@ -44,7 +46,8 @@ namespace Squidofus.Controllers
             PersonnageViewModel cd = new PersonnageViewModel()
             {
                 Class = classe,
-                ClassDetail = _context.ClassDetail.Where(x => x.IdClass == id).ToList()
+                ClassDetail = _context.ClassDetail.Where(x => x.IdClass == id).ToList(),
+                Spells = _context.Spell.Include(x => x.SpellDetail).ThenInclude(x => x.SpellEffect).Where(spell => spell.IdClass == id).ToList(),
             };
 
             return View(cd);

@@ -1,7 +1,8 @@
 @model Squidofus.ViewModels.PersonnageViewModel
+@using Squidofus.Lib
 @{
-    ViewData["Title"] = $"{Model.Class.Name} - Personnages";
-    string classe_lowered = Model.Class.Name.ToLower();
+    ViewData["Title"] = $"{Model.Class.Label} - Personnages";
+    string classe_lowered = StringHelper.RemoveDiacritics(Model.Class.Label.ToLower());
     string classe_title = Model.ClassDetail.Where(x => x.Keyword == "title").FirstOrDefault()?.Detail;
     string classe_details_ini = Model.ClassDetail.Where(x => x.Keyword == "ini").FirstOrDefault()?.Detail;
 }
@@ -108,7 +109,6 @@
                 </ul>
             </div>
         </p>
-        <br />
         <p class="text-justify">
             @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p1").FirstOrDefault()?.Detail)
         </p>
@@ -135,7 +135,7 @@
 <div class="row justify-content-lg-center">
     <div class="col-xl-8 align-self-center order-xl-2 order-1">
         <table class="table table-hover table-bordered">
-            <caption>Coût en points par Caractéristique</caption>
+            <caption>Coût en points par palier par Caractéristique</caption>
             <thead>
                 <tr>
                     <th scope="col" class="text-center table-secondary">
@@ -198,3 +198,337 @@
     </div>
 </div>
 <!-- END OF CARACS TABLE + IMG 2 + CARACS P6 -->
+<br />
+<!-- SPELLS -->
+<div class="custom-title-container">
+        <img src="~/images/classes/@(classe_lowered)/@(classe_lowered)_general.jpg" alt="Sorts du @(Model.Class.Label)">
+        <div class="h4 custom-title-content">Sorts du @(Model.Class.Label)</div>
+</div>
+<br />
+
+<div class="row">
+    <!-- SPELLS LIST -->
+    <div class="col-lg-6 col-md-5 custom-spells-list-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="list-group list-group-flush custom-spells-list" id="list-tab" role="tablist">
+                        @{
+                            foreach (Spell spell in Model.SpellsFirstHalf)
+                            {
+                                <a class="list-group-item list-group-item-action custom-spell-item" id="list-spell-@(spell.IdSpell)" data-toggle="list" 
+                                    href="#spell-@(spell.IdSpell)" role="tab" aria-controls="spell-@(spell.IdSpell)">
+                                    <img src="~/images/classes/@(classe_lowered)/spells/@spell.ImgFilename" alt="@spell.Label"
+                                                width="45" height="45">    
+                                    @spell.Label
+                                </a>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="list-group list-group-flush custom-spells-list" id="list-tab-2" role="tablist">
+                        @{
+                            foreach (Spell spell in Model.SpellsSecondHalf)
+                            {
+                                <a class="list-group-item list-group-item-action custom-spell-item" id="list-spell-@(spell.IdSpell)" data-toggle="list" 
+                                    href="#spell-@(spell.IdSpell)" role="tab" aria-controls="spell-@(spell.IdSpell)">
+                                    <img src="~/images/classes/@(classe_lowered)/spells/@spell.ImgFilename" alt="@spell.Label"
+                                                width="45" height="45">    
+                                    @spell.Label
+                                </a>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ENF OF SPELLS LIST -->
+        
+    <!-- TAB SPELL DETAILS -->
+    <div class="col-lg-6 col-md-7">
+        <div class="tab-content" id="nav-tabContent">
+            @{
+                foreach (Spell spell in Model.Spells)
+                {
+                    <div class="tab-pane fade" id="spell-@(spell.IdSpell)" role="tabpanel" aria-labelledby="list-spell-@(spell.IdSpell)">
+                        <div class="card bg-light">
+                            <div class="card-header custom-card-header-spell-detail">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul class="nav custom-spell-lvl-nav card-header-tabs justify-content-end">
+                                            <li class="nav-item">
+                                                <span class="nav-link">Niveaux du sort :</span>
+                                            </li>
+                                            <li class="nav-item" id="nav-lv1-tab-@(spell.IdSpell)" href="#nav-lv1-@(spell.IdSpell)">
+                                                <a class="nav-link active" href="#nav-lv1-@(spell.IdSpell)" data-toggle="tab" role="tab" aria-controls="nav-lv1-@(spell.IdSpell)" aria-selected="true">1</a>
+                                            </li>
+                                            <li class="nav-item" id="nav-lv2-tab-@(spell.IdSpell)" href="#nav-lv2-@(spell.IdSpell)">
+                                                <a class="nav-link" href="#nav-lv2-@(spell.IdSpell)" data-toggle="tab" role="tab" aria-controls="nav-lv2-@(spell.IdSpell)" aria-selected="false">2</a>
+                                            </li>
+                                            <li class="nav-item" id="nav-lv3-tab-@(spell.IdSpell)" href="#nav-lv3-@(spell.IdSpell)">
+                                                <a class="nav-link" href="#nav-lv3-@(spell.IdSpell)" data-toggle="tab" role="tab" aria-controls="nav-lv3-@(spell.IdSpell)" aria-selected="false">3</a>
+                                            </li>
+                                            <li class="nav-item" id="nav-lv4-tab-@(spell.IdSpell)" href="#nav-lv4-@(spell.IdSpell)">
+                                                <a class="nav-link" href="#nav-lv4-@(spell.IdSpell)" data-toggle="tab" role="tab" aria-controls="nav-lv4-@(spell.IdSpell)" aria-selected="false">4</a>
+                                            </li>
+                                            <li class="nav-item" id="nav-lv5-tab-@(spell.IdSpell)" href="#nav-lv5-@(spell.IdSpell)">
+                                                <a class="nav-link" href="#nav-lv5-@(spell.IdSpell)" data-toggle="tab" role="tab" aria-controls="nav-lv5-@(spell.IdSpell)" aria-selected="false">5</a>
+                                            </li>
+                                            <li class="nav-item" id="nav-lv6-tab-@(spell.IdSpell)" href="#nav-lv6-@(spell.IdSpell)">
+                                                <a class="nav-link" href="#nav-lv6-@(spell.IdSpell)" data-toggle="tab" role="tab" aria-controls="nav-lv6-@(spell.IdSpell)" aria-selected="false">6</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body custom-card-body">
+                                <div class="tab-content" id="nav-tabContent-spell-@(spell.IdSpell)">
+                                    <img class="custom-spell-tab-img" src="~/images/classes/@(classe_lowered)/spells/@spell.ImgFilename" alt="@spell.Label"
+                                            width="60" height="60">
+                                    @{
+                                        foreach (SpellDetail sd in spell.SpellDetail)
+                                        {
+                                            <div class="tab-pane custom-spell-lvl-tab fade @(sd.SpellLvl == 1 ? "show active" : "")" id="nav-lv@(sd.SpellLvl)-@(spell.IdSpell)" role="tabpanel" aria-labelledby="nav-lv@(sd.SpellLvl)-tab-@(spell.IdSpell)">
+                                                <div class="row">
+                                                    <div class="col custom-spell-tab-header">
+                                                        <h6 class="font-weight-bold custom-spell-tab-title">@spell.Label</h6>
+                                                    </div>
+                                                    <div class="col-auto ml-auto custom-spell-tab-ap-range">
+                                                        <span>@sd.Range</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col custom-spell-tab-header">
+                                                        <span>Niveau requis : @sd.RequiredLvl</span>
+                                                    </div>
+                                                    <div class="col-auto ml-auto custom-spell-tab-ap-range">
+                                                        <span>@sd.ApCost</span>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="row custom-spell-tab-desc">
+                                                    <div class="col">
+                                                        <p>@spell.Description</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <p class="font-weight-bold custom-effects-tab-title">Effets</p>
+                                                    </div>
+                                                </div>
+                                                @* EFFECTS *@
+                                                <div class="row">
+                                                    <div class="col">
+                                                        @* TABS *@
+                                                        <ul class="nav nav-tabs" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav" role="tablist">
+                                                            <li class="nav-item">
+                                                                <a class="nav-link active" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-1" data-toggle="tab" href="#tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-1" role="tab" aria-controls="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-1" aria-selected="true">
+                                                                    <span>Normaux</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link @(sd.HasCriticalEffect ? "" : "disabled")" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-2" data-toggle="tab" href="#tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-2" role="tab" aria-controls="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-2" aria-selected="false">
+                                                                    <span class="@(sd.HasCriticalEffect ? "" : "custom-tab-disabled")">Critiques</span>
+                                                                </a>
+                                                            </li>
+                                                            @if (sd.HasSummonInfo)
+                                                            {
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-3" data-toggle="tab" href="#tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-3" role="tab" aria-controls="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-3" aria-selected="false">
+                                                                        <span>Invocation</span>
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                        @* CONTENT *@
+                                                        <div class="tab-content" id="tab-content-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)">
+                                                            <div class="tab-pane fade show active" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-1" role="tabpanel" aria-labelledby="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-1">
+                                                                <table class="table-sm table-striped custom-table-effects">
+                                                                    <tbody>
+                                                                        @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "normal").OrderBy(x => x.Order).ToList())
+                                                                        {
+                                                                            <tr>
+                                                                                <th scope="row" class="custom-table-effect-element">
+                                                                                    @if (se.Element != null)
+                                                                                    {
+                                                                                        <img class="custom-table-effect-element-img" src="~/images/icons/@(@se.Element).png" alt="Élément @se.Element"
+                                                                                            width="15" height="15">
+                                                                                    }
+                                                                                </th>
+                                                                                <td>@se.Effect</td>
+                                                                            </tr>
+                                                                        }
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            @if (sd.HasCriticalEffect)
+                                                            {
+                                                                <div class="tab-pane fade" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-2" role="tabpanel" aria-labelledby="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-2">
+                                                                    <table class="table-sm table-striped custom-table-effects">
+                                                                        <tbody>
+                                                                            @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "critical").OrderBy(x => x.Order).ToList())
+                                                                            {
+                                                                                <tr>
+                                                                                    <th scope="row" class="custom-table-effect-element">
+                                                                                        @if (se.Element != null)
+                                                                                        {
+                                                                                            <img class="custom-table-effect-element-img" src="~/images/icons/@(@se.Element).png" alt="Élément @se.Element"
+                                                                                                width="15" height="15">
+                                                                                        }
+                                                                                    </th>
+                                                                                    <td>@se.Effect</td>
+                                                                                </tr>
+                                                                            }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            }
+                                                            @if (sd.HasSummonInfo)
+                                                            {
+                                                                <div class="tab-pane fade" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-3" role="tabpanel" aria-labelledby="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-3">
+                                                                    <table class="table-sm table-striped custom-table-effects">
+                                                                        <tbody>
+                                                                            @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "summon").OrderBy(x => x.Order).ToList())
+                                                                            {
+                                                                                <tr>
+                                                                                    <th scope="row" class="custom-table-effect-element">
+                                                                                        @if (se.Element != null)
+                                                                                        {
+                                                                                            <img class="custom-table-effect-element-img" src="~/images/icons/@(@se.Element).png" alt="Élément @se.Element"
+                                                                                                width="15" height="15">
+                                                                                        }
+                                                                                    </th>
+                                                                                    <td>@se.Effect</td>
+                                                                                </tr>
+                                                                            }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @* END OF EFFECTS *@
+                                                <br />
+                                                @* AUTRES CARACTS *@
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <p class="font-weight-bold custom-effects-tab-title">Autres caractéristiques</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    @* Autres caracs : left panel *@
+                                                    <div class="col">
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Probabilité de coup critique </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">@sd.CriticalHitProbability</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Probabilité d'échec </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">@sd.FailureProbability</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Nb. de lancers par tour </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">@sd.NbCastPerTurn</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Nb. de lancers par tour par joueur </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">@sd.NbCastPerTurnPerPlayer</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Nb. de tours entre deux lancers </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">@sd.NbTurnsBetweenTwoCasts</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @* Autres caracs : right panel *@
+                                                    <div class="col-lg-auto ml-auto custom-autre-caracs-right-panel">
+                                                        <hr class="custom-autre-caracs-separator-md-down" />
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Portée modifiable </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">
+                                                                    <i class='uil @(sd.AdjustableRange ? "uil-check custom-bool-icon-true" : "uil-times custom-bool-icon-false")'></i>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Ligne de vue </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">
+                                                                    <i class='uil @(sd.LineOfSight ? "uil-check custom-bool-icon-true" : "uil-times custom-bool-icon-false")'></i>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Lancer en ligne </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">
+                                                                    <i class='uil @(sd.Linear ? "uil-check custom-bool-icon-true" : "uil-times custom-bool-icon-false")'></i>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>Cellules libres </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">
+                                                                    <i class='uil @(sd.FreeCells ? "uil-check custom-bool-icon-true" : "uil-times custom-bool-icon-false")'></i>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row custom-row-autres-caracs">
+                                                            <div class="col text-truncate custom-col-autres-caracs-label">
+                                                                <p>EC fini le tour </p>
+                                                            </div>
+                                                            <div class="col-auto ml-auto">
+                                                                <p class="font-weight-bold">
+                                                                    <i class='uil @(sd.FailureEndsTurn ? "uil-check custom-bool-icon-true" : "uil-times custom-bool-icon-false")'></i>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @* END OF AUTRES CARACTS *@
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <!-- END OF TAB SPELL DETAILS -->
+</div>
+<!-- END OF SPELLS -->

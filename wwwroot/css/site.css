@@ -1,4 +1,14 @@
-﻿/* NAVBAR */
+﻿/* COMMON */
+#bootstrap-overrides .custom-bool-icon-true {
+  color: green;
+}
+
+#bootstrap-overrides .custom-bool-icon-false {
+  color: #d10a0a;
+}
+/* END OF COMMON */
+
+/* NAVBAR */
 #bootstrap-overrides .custom-navbar {
   margin-top: 30px;
   background-color: #BEB997;
@@ -6,8 +16,8 @@
   border: 1px solid rgb(36, 36, 35);
 }
 
-#bootstrap-overrides .active a{
-  color: rgb(218, 86, 4) !important; 
+#bootstrap-overrides .nav-item > .nav-link.active{
+  color: rgb(218, 86, 4);
 }
 
 #bootstrap-overrides .nav-item a{
@@ -35,12 +45,11 @@
 .dropdown-divider {
   border-color: #50483A;
 }
-
 /* END OF NAVBAR */
 
+/******************************************/
 
 /* BODY */
-
 body { /* Entire website */
   background-color: rgb(155, 130, 115);
 }
@@ -52,10 +61,9 @@ body { /* Entire website */
   margin-bottom: 20px;
   background-color: #FFFFFF;
 }
-
 /* END OF BODY */
 
-
+/******************************************/
 
 /* FOOTER */
 #bootstrap-overrides .custom-footer {
@@ -96,5 +104,123 @@ body { /* Entire website */
   display: inline-block;
 }
 
+#bootstrap-overrides .custom-title-container {
+  position: relative;
+}
 
+#bootstrap-overrides .custom-title-content {
+  position: absolute;
+  bottom: 2px;
+  left: 50px;
+}
+
+/* SORTS */
+#bootstrap-overrides .custom-spell-item {
+  border: none;
+  padding: 3px;
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 0.9rem;
+}
+
+#bootstrap-overrides .custom-spells-list {
+  margin-right: -5px;
+  margin-left: -15px;
+}
+
+#bootstrap-overrides .custom-spells-list-container {
+  margin-bottom: 20px;
+}
+
+#bootstrap-overrides .custom-card-header-spell-detail {
+  padding: 0;
+  border-bottom: none;
+}
+
+#bootstrap-overrides .custom-spell-lvl-nav {
+  margin-right: 0;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+#bootstrap-overrides .custom-card-body {
+  padding: 0.7rem;
+  padding-bottom: 0.2rem;
+}
+
+#bootstrap-overrides .custom-spell-tab-img {
+  float: left;
+}
+
+#bootstrap-overrides .custom-spell-lvl-tab {
+  font-size: 0.9em;
+}
+
+#bootstrap-overrides .custom-spell-tab-title {
+  margin-bottom: 0;
+}
+
+#bootstrap-overrides .custom-spell-tab-ap-range {
+  padding-right: 0;
+}
+
+#bootstrap-overrides .custom-spell-tab-header {
+  padding-left: 6px;
+}
+
+#bootstrap-overrides .custom-spell-tab-desc {
+  padding-top: 5px;
+}
+
+#bootstrap-overrides .custom-effects-tab-title {
+  margin-bottom: 0.5em;
+}
+
+#bootstrap-overrides .custom-tab-disabled {
+  color: grey;
+}
+
+#bootstrap-overrides .custom-table-effects {
+  width: 100%;
+}
+
+#bootstrap-overrides .custom-table-effect-element {
+  width: 20px;
+}
+
+#bootstrap-overrides .custom-table-effect-element-img {
+  display: table-cell;
+}
+
+#bootstrap-overrides .custom-autre-caracs-separator-md-down {
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 991px) { /* md and down */
+  #bootstrap-overrides .custom-row-autres-caracs {
+    margin-bottom: -10px;
+  }
+}
+
+@media (min-width: 992px) { /* lg and up */
+  #bootstrap-overrides .custom-row-autres-caracs {
+    margin-bottom: -13px;
+  }
+
+  #bootstrap-overrides .custom-autre-caracs-right-panel {
+    border-left: #E5E5E5;
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+
+  #bootstrap-overrides .custom-autre-caracs-separator-md-down {
+    display: none;
+  }
+}
+
+#bootstrap-overrides .custom-col-autres-caracs-label {
+  padding-right: 0;
+}
+/* END OF SORTS */
 /* END OF PERSONNAGES DETAILS */

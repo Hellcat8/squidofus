@@ -8,11 +8,13 @@ namespace Squidofus.Models
         public Class()
         {
             ClassDetail = new HashSet<ClassDetail>();
+            Spell = new HashSet<Spell>();
         }
 
         public int IdClass { get; set; }
-        public string Name { get; set; }
+        public string Label { get; set; }
 
         public virtual ICollection<ClassDetail> ClassDetail { get; set; }
+        public virtual ICollection<Spell> Spell { get; set; }
     }
 }
