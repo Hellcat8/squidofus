@@ -52,6 +52,7 @@
 /* BODY */
 body { /* Entire website */
   background-color: rgb(155, 130, 115);
+  font-size-adjust:0.5;
 }
 
 #bootstrap-overrides .custom-body {
@@ -224,3 +225,19 @@ body { /* Entire website */
 }
 /* END OF SORTS */
 /* END OF PERSONNAGES DETAILS */
+
+/* FIREFOX SPECIFIC */
+@-moz-document url-prefix() {
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+@supports (-moz-appearance:none) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+/* END OF FIREFOX SPECIFIC */

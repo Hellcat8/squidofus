@@ -5,8 +5,8 @@
 // Two Bootstrap's list-groups are used to simulate two columns.
 // Fixes the duplicate active class
 $(".custom-spell-item").on('click', function() {
-    $(".custom-spell-item").each(function(index) {
-      $(this).removeClass("active show");
-    });
-  })
+  $(".custom-spell-item").each(function(index) {
+    $(this).removeClass("active show");
+  });
+});
 /* END OF : Personnages > Sorts */
