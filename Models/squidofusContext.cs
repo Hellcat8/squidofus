@@ -16,6 +16,8 @@ namespace Squidofus.Models
         }
 
         public virtual DbSet<Class> Class { get; set; }
+        public virtual DbSet<ClassBuild> ClassBuild { get; set; }
+        public virtual DbSet<ClassBuildDetail> ClassBuildDetail { get; set; }
         public virtual DbSet<ClassDetail> ClassDetail { get; set; }
         public virtual DbSet<Spell> Spell { get; set; }
         public virtual DbSet<SpellDetail> SpellDetail { get; set; }
@@ -49,6 +51,87 @@ namespace Squidofus.Models
                     .HasColumnType("varchar(20)")
                     .HasCharSet("latin1")
                     .HasCollation("latin1_swedish_ci");
+            });
+
+            modelBuilder.Entity<ClassBuild>(entity =>
+            {
+                entity.HasKey(e => e.IdClassBuild)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("class_build");
+
+                entity.HasIndex(e => e.IdClass)
+                    .HasName("fk_class_build_to_class_idx");
+
+                entity.Property(e => e.IdClassBuild)
+                    .HasColumnName("id_class_build")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.IdClass)
+                    .HasColumnName("id_class")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Label)
+                    .IsRequired()
+                    .HasColumnName("label")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.Order)
+                    .HasColumnName("order")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasColumnName("type")
+                    .HasColumnType("varchar(10)")
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
+                entity.HasOne(d => d.IdClassNavigation)
+                    .WithMany(p => p.ClassBuild)
+                    .HasForeignKey(d => d.IdClass)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_class_build_to_class");
+            });
+
+            modelBuilder.Entity<ClassBuildDetail>(entity =>
+            {
+                entity.HasKey(e => e.IdClassBuildDetail)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("class_build_detail");
+
+                entity.HasIndex(e => e.IdClassBuild)
+                    .HasName("fk_class_build_detail_to_class_build_idx");
+
+                entity.Property(e => e.IdClassBuildDetail)
+                    .HasColumnName("id_class_build_detail")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Detail)
+                    .IsRequired()
+                    .HasColumnName("detail")
+                    .HasColumnType("text")
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.ExtraLineAtEnd).HasColumnName("extra_line_at_end");
+
+                entity.Property(e => e.IdClassBuild)
+                    .HasColumnName("id_class_build")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Order)
+                    .HasColumnName("order")
+                    .HasColumnType("int(11)");
+
+                entity.HasOne(d => d.IdClassBuildNavigation)
+                    .WithMany(p => p.ClassBuildDetail)
+                    .HasForeignKey(d => d.IdClassBuild)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_class_build_detail_to_class_build");
             });
 
             modelBuilder.Entity<ClassDetail>(entity =>

@@ -31,21 +31,14 @@ namespace Squidofus.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            // if (id == 0 || id > 12)
-            // {
-            //     return Error();
-            // }
-
-            Class classe = _context.Class.Where(x => x.IdClass == id).FirstOrDefault();
-
-            if (classe == null)
+            if (!_context.Class.Where(x => x.IdClass == id).Any())
             {
                 return Error();
             }
 
             PersonnageViewModel cd = new PersonnageViewModel()
             {
-                Class = classe,
+                Class = _context.Class.Where(x => x.IdClass == id).Include(x => x.ClassBuild).ThenInclude(x => x.ClassBuildDetail).FirstOrDefault(),
                 ClassDetail = _context.ClassDetail.Where(x => x.IdClass == id).ToList(),
                 Spells = _context.Spell.Include(x => x.SpellDetail).ThenInclude(x => x.SpellEffect).Where(spell => spell.IdClass == id).ToList(),
             };

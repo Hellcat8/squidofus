@@ -201,8 +201,10 @@
 <br />
 <!-- SPELLS -->
 <div class="custom-title-container">
-        <img src="~/images/classes/@(classe_lowered)/@(classe_lowered)_general.jpg" alt="Sorts du @(Model.Class.Label)">
-        <div class="h4 custom-title-content">Sorts du @(Model.Class.Label)</div>
+        <img src="~/images/classes/@(classe_lowered)/@(classe_lowered)_general.jpg" alt="@(Model.ClassDetail.Where(x => x.Keyword == "caracs_p8").FirstOrDefault()?.Detail)">
+        <div class="h4 custom-title-content">
+            @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p8").FirstOrDefault()?.Detail)
+        </div>
 </div>
 <br />
 
@@ -390,7 +392,7 @@
                                                                 <div class="tab-pane fade" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-3" role="tabpanel" aria-labelledby="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-3">
                                                                     <table class="table-sm table-striped custom-table-effects">
                                                                         <tbody>
-                                                                            @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "summon").OrderBy(x => x.Order).ToList())
+                                                                            @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "summon").OrderBy(x => x.Order))
                                                                             {
                                                                                 <tr>
                                                                                     <th scope="row" class="custom-table-effect-element">
@@ -532,3 +534,43 @@
     <!-- END OF TAB SPELL DETAILS -->
 </div>
 <!-- END OF SPELLS -->
+<br />
+<!-- CLASS BUILDS -->
+<div class="row">
+    <div class="col">
+        @{
+            foreach (ClassBuild build in Model.Class.ClassBuild.OrderBy(x => x.Order))
+            {
+                <div class="custom-title-container">
+                    <img src="~/images/classes/@(build.Type == "general" ? classe_lowered+"/"+classe_lowered+"_general.jpg" : "common/"+build.Type+".jpg")" 
+                        alt="@(build.Label)">
+                    <div class="h4 custom-title-content">
+                        @(build.Label)
+                    </div>
+                </div>
+                <br />
+
+                <p class="text-justify">
+                    @foreach (ClassBuildDetail buildinfo in build.ClassBuildDetail.OrderBy(x => x.Order))
+                    {
+                        @(buildinfo.Detail)
+                        <br />
+
+                        if (buildinfo.ExtraLineAtEnd) { <br /> }
+                    }
+                </p>
+            }
+        }
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-sm-auto text-center mb-4 mb-sm-0">
+        <img src="~/images/classes/@(classe_lowered)/@(classe_lowered)_m.gif" 
+            alt="@(classe_title)">
+    </div>
+    <div class="col-sm-auto text-center">
+        <img src="~/images/classes/@(classe_lowered)/@(classe_lowered)_f.gif" 
+            alt="@(classe_title)">
+    </div>
+</div>
+<!-- END OF CLASS BUILDS -->
