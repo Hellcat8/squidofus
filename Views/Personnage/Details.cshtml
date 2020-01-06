@@ -39,7 +39,7 @@
         <p>
             <div class="card bg-light">
                 <div class="card-header">
-                    <strong>Informations</strong>
+                    <strong>Profil</strong>
                 </div>
                 <ul class="custom-personnage-infos-content">
                     <li>
@@ -193,6 +193,12 @@
         <p class="text-justify">
             @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p6").FirstOrDefault()?.Detail)
             <br />
+            @if (Model.ClassDetail.Where(x => x.Keyword == "caracs_p6_2").Any())
+            {
+                @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p6_2").FirstOrDefault()?.Detail)
+                <br />
+                <br />
+            }
             @(Model.ClassDetail.Where(x => x.Keyword == "caracs_p7").FirstOrDefault()?.Detail)
         </p>
     </div>
