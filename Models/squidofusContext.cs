@@ -268,6 +268,10 @@ namespace Squidofus.Models
 
                 entity.Property(e => e.HasSummonInfo).HasColumnName("has_summon_info");
 
+                entity.Property(e => e.HasGlyphInfo).HasColumnName("has_glyph_info");
+
+                entity.Property(e => e.HasTrapInfo).HasColumnName("has_trap_info");
+
                 entity.Property(e => e.IdSpell)
                     .HasColumnName("id_spell")
                     .HasColumnType("int(11)");

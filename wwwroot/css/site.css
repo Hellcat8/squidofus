@@ -1,11 +1,11 @@
-﻿/*************************************/
-/*              COULEURS             */
-/*************************************/
-/* Light        : #BEB997            */
-/* Dark         : #51493C            */
-/* Orange       : rgb(218, 86, 4)    */
-/* Text on dark : rgb(250, 250, 250) */
-/*************************************/
+﻿/***************************************/
+/*               COULEURS              */
+/***************************************/
+/* Light        : #D9D6BB (ex #BEB997) */
+/* Dark         : #51493C              */
+/* Orange       : rgb(218, 86, 4)      */
+/* Text on dark : rgb(250, 250, 250)   */
+/***************************************/
 
 /* COMMON */
 #bootstrap-overrides .custom-bool-icon-true {
@@ -17,7 +17,7 @@
 }
 
 #bootstrap-overrides .dofus-bg-light {
-  background-color: #BEB997;
+  background-color: #D9D6BB;
 }
 
 #bootstrap-overrides .dofus-bg-dark {
@@ -26,6 +26,10 @@
 
 #bootstrap-overrides .dofus-text-light {
   color: rgb(250, 250, 250);
+}
+
+#bootstrap-overrides .dofus-text-link {
+  color: rgb(218, 86, 4);
 }
 
 #bootstrap-overrides .dofus-border-radius {
@@ -39,7 +43,7 @@
 
 /* TABLES */
 #bootstrap-overrides .custom-table-cell-light {
-  background-color: #BEB997;
+  background-color: #D9D6BB;
   border: 1px solid #51493C;
 }
 
@@ -119,7 +123,7 @@ body { /* Entire website */
 
 #bootstrap-overrides .footer-menu {
   border-radius: 0px 5px 0px 0px;
-  border-left: 1px dashed #BEB997;
+  border-left: 1px dashed #D9D6BB;
   color: black;
 }
 
@@ -165,6 +169,10 @@ body { /* Entire website */
   padding-right: 0;
   padding-left: 0;
   font-size: 0.9rem;
+}
+
+#bootstrap-overrides .custom-spell-item.active {
+  background-color: #51493C;
 }
 
 #bootstrap-overrides .custom-spells-list {

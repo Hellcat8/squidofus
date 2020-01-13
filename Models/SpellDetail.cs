@@ -27,6 +27,8 @@ namespace Squidofus.Models
         public bool FailureEndsTurn { get; set; }
         public bool HasCriticalEffect { get; set; }
         public bool HasSummonInfo { get; set; }
+        public bool HasGlyphInfo { get; set; }
+        public bool HasTrapInfo { get; set; }
         public int IdSpell { get; set; }
 
         public virtual Spell IdSpellNavigation { get; set; }

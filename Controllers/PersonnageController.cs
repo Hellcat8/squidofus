@@ -43,6 +43,12 @@ namespace Squidofus.Controllers
                 Spells = _context.Spell.Include(x => x.SpellDetail).ThenInclude(x => x.SpellEffect).Where(spell => spell.IdClass == id).ToList(),
             };
 
+            if (cd.Class.IdClass == 2) // Ecaflip
+            {
+                ViewBag.RouletteEffectsStd = GetRouletteEffectsStd();
+                ViewBag.RouletteEffectsCrit = GetRouletteEffectsCrit();
+            } 
+
             return View(cd);
         }
 
@@ -50,6 +56,44 @@ namespace Squidofus.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private string[] GetRouletteEffectsStd()
+        {
+            return new string[]{
+                    "+2 à 3 PM",
+                    "+2 à 3 PA",
+                    "+50 de dommages",
+                    "+50 de soins",
+                    "+400 en agilité",
+                    "+400 en chance",
+                    "+400 en force",
+                    "+400 en intelligence",
+                    "+50 aux coups critiques",
+                    "Enlève les envoûtements",
+                    "+5 à la portée",
+                    "Fait passer le tour suivant",
+                    "PDV rendus : 5000"
+                };
+        }
+
+        private string[] GetRouletteEffectsCrit()
+        {
+            return new string[]{
+                    "+3 PM",
+                    "+3 PA",
+                    "+60 de dommages",
+                    "+60 de soins",
+                    "+500 en agilité",
+                    "+500 en chance",
+                    "+500 en force",
+                    "+500 en intelligence",
+                    "+60 en coups critiques",
+                    "Enlève les envoûtements",
+                    "+6 à la portée",
+                    "Fait passer le tour suivant",
+                    "PDV rendus : 5000"
+                };
         }
     }
 }

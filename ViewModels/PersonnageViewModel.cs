@@ -26,12 +26,12 @@ namespace Squidofus.ViewModels
 
         public IEnumerable<Spell> SpellsFirstHalf
         {
-            get { return Spells.Take(_mid); }
+            get { return Spells.OrderBy(x => x.Order).Take(_mid); }
         }
 
         public IEnumerable<Spell> SpellsSecondHalf
         {
-            get { return Spells.Skip(_mid); }
+            get { return Spells.OrderBy(x => x.Order).Skip(_mid); }
         }
         // END OF : Spells columns management
     }

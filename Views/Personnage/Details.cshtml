@@ -319,6 +319,14 @@
                                                 <div class="row custom-spell-tab-desc">
                                                     <div class="col">
                                                         <p>@spell.Description</p>
+                                                        @if (ViewBag.RouletteEffectsStd != null && @spell.IdSpell == 29) // Roulette
+                                                        {
+                                                            <p>
+                                                                <a class="dofus-text-link" href="" data-toggle="modal" data-target="#RouletteEffectsModal">
+                                                                    Voir la liste des effets possibles
+                                                                </a>
+                                                            </p>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -349,6 +357,22 @@
                                                                     </a>
                                                                 </li>
                                                             }
+                                                            @if (sd.HasGlyphInfo)
+                                                            {
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-4" data-toggle="tab" href="#tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-4" role="tab" aria-controls="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-4" aria-selected="false">
+                                                                        <span>Glyphe</span>
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                            @if (sd.HasTrapInfo)
+                                                            {
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-5" data-toggle="tab" href="#tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-5" role="tab" aria-controls="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-5" aria-selected="false">
+                                                                        <span>Piège</span>
+                                                                    </a>
+                                                                </li>
+                                                            }
                                                         </ul>
                                                         @* CONTENT *@
                                                         <div class="tab-content" id="tab-content-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)">
@@ -366,6 +390,17 @@
                                                                                     }
                                                                                 </th>
                                                                                 <td>@se.Effect</td>
+                                                                            </tr>
+                                                                        }
+                                                                        @if (Model.Class.IdClass == 12 && spell.IdSpell != 252)
+                                                                        { // Class = Xélor && Sort != d'Invocation Dopeul
+                                                                            <tr>
+                                                                                <th scope="row" class="custom-table-effect-element"></th>
+                                                                                <td>- Dans 90% des cas: Pas d'effet complémentaire</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row" class="custom-table-effect-element"></th>
+                                                                                <td>- Dans 10% des cas: Ajoute +1 PA</td>
                                                                             </tr>
                                                                         }
                                                                     </tbody>
@@ -389,6 +424,17 @@
                                                                                     <td>@se.Effect</td>
                                                                                 </tr>
                                                                             }
+                                                                            @if (Model.Class.IdClass == 12 && spell.IdSpell != 252)
+                                                                            { // Class = Xélor && Sort != d'Invocation Dopeul
+                                                                                <tr>
+                                                                                    <th scope="row" class="custom-table-effect-element"></th>
+                                                                                    <td>- Dans 90% des cas: Pas d'effet complémentaire</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row" class="custom-table-effect-element"></th>
+                                                                                    <td>- Dans 10% des cas: Ajoute +1 PA</td>
+                                                                                </tr>
+                                                                            }
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
@@ -399,6 +445,50 @@
                                                                     <table class="table-sm table-striped custom-table-effects">
                                                                         <tbody>
                                                                             @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "summon").OrderBy(x => x.Order))
+                                                                            {
+                                                                                <tr>
+                                                                                    <th scope="row" class="custom-table-effect-element">
+                                                                                        @if (se.Element != null)
+                                                                                        {
+                                                                                            <img class="custom-table-effect-element-img" src="~/images/icons/@(@se.Element).png" alt="Élément @se.Element"
+                                                                                                width="15" height="15">
+                                                                                        }
+                                                                                    </th>
+                                                                                    <td>@se.Effect</td>
+                                                                                </tr>
+                                                                            }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            }
+                                                            @if (sd.HasGlyphInfo)
+                                                            {
+                                                                <div class="tab-pane fade" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-4" role="tabpanel" aria-labelledby="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-4">
+                                                                    <table class="table-sm table-striped custom-table-effects">
+                                                                        <tbody>
+                                                                            @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "glyph").OrderBy(x => x.Order))
+                                                                            {
+                                                                                <tr>
+                                                                                    <th scope="row" class="custom-table-effect-element">
+                                                                                        @if (se.Element != null)
+                                                                                        {
+                                                                                            <img class="custom-table-effect-element-img" src="~/images/icons/@(@se.Element).png" alt="Élément @se.Element"
+                                                                                                width="15" height="15">
+                                                                                        }
+                                                                                    </th>
+                                                                                    <td>@se.Effect</td>
+                                                                                </tr>
+                                                                            }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            }
+                                                            @if (sd.HasTrapInfo)
+                                                            {
+                                                                <div class="tab-pane fade" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-5" role="tabpanel" aria-labelledby="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-5">
+                                                                    <table class="table-sm table-striped custom-table-effects">
+                                                                        <tbody>
+                                                                            @foreach (SpellEffect se in sd.SpellEffect.Where(x => x.Type == "trap").OrderBy(x => x.Order))
                                                                             {
                                                                                 <tr>
                                                                                     <th scope="row" class="custom-table-effect-element">
@@ -580,3 +670,66 @@
     </div>
 </div>
 <!-- END OF CLASS BUILDS -->
+
+
+<!-- ****************************************** -->
+
+@* ROULETTE EFFECTS MODAL *@
+@if (@ViewBag.RouletteEffectsStd != null)
+{
+    <div class="modal fade" tabindex="-1" role="dialog" id="RouletteEffectsModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header dofus-bg-dark dofus-text-light">
+                    <h5 class="modal-title">Sort Roulette — Ecaflip</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="dofus-text-light" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body dofus-bg-light">
+                    <p>Liste des effets possibles pour le sort Roulette (1 tour).</p>
+                    <ul class="nav nav-tabs" id="rouletteEffectsTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="roulette-effects-std-tab" data-toggle="tab" href="#roulette-effects-std-tab-content" role="tab" aria-controls="roulette-effects-std-tab-content" aria-selected="true">Normaux</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="roulette-effects-crit-tab" data-toggle="tab" href="#roulette-effects-crit-tab-content" role="tab" aria-controls="roulette-effects-crit-tab-content" aria-selected="false">Critiques</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="rouletteEffectsTabContent">
+                        <div class="tab-pane fade show active" id="roulette-effects-std-tab-content" role="tabpanel" aria-labelledby="roulette-effects-std-tab">
+                            <table class="table-sm table-striped custom-table-effects">
+                                <tbody>
+                                    @foreach (string effect in @ViewBag.RouletteEffectsStd)
+                                    {
+                                        <tr>
+                                            <th scope="row" class="custom-table-effect-element"></th>
+                                            <td>@effect</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="roulette-effects-crit-tab-content" role="tabpanel" aria-labelledby="roulette-effects-crit-tab">
+                            <table class="table-sm table-striped custom-table-effects">
+                                <tbody>
+                                    @foreach (string effect in @ViewBag.RouletteEffectsCrit)
+                                    {
+                                        <tr>
+                                            <th scope="row" class="custom-table-effect-element"></th>
+                                            <td>@effect</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer dofus-bg-light">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@* END OF ROULETTE EFFECTS MODAL *@
