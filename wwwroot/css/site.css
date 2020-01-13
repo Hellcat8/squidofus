@@ -2,6 +2,7 @@
 /*               COULEURS              */
 /***************************************/
 /* Light        : #D9D6BB (ex #BEB997) */
+/* Lighter      : #EAE3CC              */
 /* Dark         : #51493C              */
 /* Orange       : rgb(218, 86, 4)      */
 /* Text on dark : rgb(250, 250, 250)   */
@@ -22,6 +23,10 @@
 
 #bootstrap-overrides .dofus-bg-dark {
   background-color: #51493C;
+}
+
+#bootstrap-overrides .dofus-bg-lighter {
+  background-color: #EAE3CC;
 }
 
 #bootstrap-overrides .dofus-text-light {
@@ -61,6 +66,9 @@
 #bootstrap-overrides .custom-navbar {
   margin-top: 30px;
   border-radius: 5px;
+  -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border: 1px solid rgb(36, 36, 35);
 }
 
@@ -78,6 +86,9 @@
 
 #bootstrap-overrides .custom-menu {
   border-left: 1px solid rgb(49, 49, 49);
+  -moz-border-left: 1px solid rgb(49, 49, 49);
+  -khtml-border-left: 1px solid rgb(49, 49, 49);
+  -webkit-border-left: 1px solid rgb(49, 49, 49);
   padding-left: 12px;
   margin-left: 3px;
 }
@@ -92,6 +103,9 @@
 
 .dropdown-divider {
   border-color: #50483A;
+  -mot-border-color: #50483A;
+  -khtml-border-color: #50483A;
+  -webkit-border-color: #50483A;
 }
 /* END OF NAVBAR */
 
@@ -100,12 +114,20 @@
 /* BODY */
 body { /* Entire website */
   background-color: rgb(155, 130, 115);
+  background-image: url('../images/general/dofus_background_blurred.jpg');
+  background-attachment: fixed;
   font-size-adjust:0.5;
 }
 
 #bootstrap-overrides .custom-body {
   border-radius: 5px;
+  -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border: 1px solid rgb(36, 36, 35);
+  -moz-border: 1px solid rgb(36, 36, 35);
+  -khtml-border: 1px solid rgb(36, 36, 35);
+  -webkit-border: 1px solid rgb(36, 36, 35);
   padding-top: 20px;
   margin-bottom: 20px;
   background-color: #FFFFFF;
@@ -117,13 +139,25 @@ body { /* Entire website */
 /* FOOTER */
 #bootstrap-overrides .custom-footer {
   border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -khtml-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
   border: 1px solid rgb(36, 36, 35);
+  -moz-border: 1px solid rgb(36, 36, 35);
+  -khtml-border: 1px solid rgb(36, 36, 35);
+  -webkit-border: 1px solid rgb(36, 36, 35);
   color: #BEB997;
 }
 
 #bootstrap-overrides .footer-menu {
   border-radius: 0px 5px 0px 0px;
+  -moz-border-radius: 0px 5px 0px 0px;
+  -khtml-border-radius: 0px 5px 0px 0px;
+  -webkit-border-radius: 0px 5px 0px 0px;
   border-left: 1px dashed #D9D6BB;
+  -moz-border-left: 1px dashed #D9D6BB;
+  -khtml-border-left: 1px dashed #D9D6BB;
+  -webkit-border-left: 1px dashed #D9D6BB;
   color: black;
 }
 
@@ -137,6 +171,65 @@ body { /* Entire website */
 /* END OF FOOTER */
 
 /******************************************/
+/* PERSONNAGES - INDEX */
+#bootstrap-overrides .custom-img-banner {
+  border-bottom-style: solid;
+  -moz-border-bottom-style: solid;
+  -khtml-border-bottom-style: solid;
+  -webkit-border-bottom-style: solid;
+  border-bottom-width: 1px;
+  -moz-border-bottom-width: 1px;
+  -khtml-border-bottom-width: 1px;
+  -webkit-border-bottom-width: 1px;
+  border-bottom-color: black;
+  -moz-border-bottom-color: black;
+  -khtml-border-bottom-color: black;
+  -webkit-border-bottom-color: black;
+}
+
+#bootstrap-overrides .custom-card-class-index {
+  width: 17rem;
+  display: inline-block;
+  margin: 15px;
+}
+
+#bootstrap-overrides .custom-class-index-cards-list a{
+  color: black;
+}
+
+#bootstrap-overrides .custom-class-index-cards-list a:hover {
+  color: rgb(218, 86, 4);
+  text-decoration: none;
+}
+
+#bootstrap-overrides .custom-card-class-index:hover {
+  background-color: #D9D6BB;
+  border-color: #51493C;
+  -moz-border-color: #51493C;
+  -khtml-border-color: #51493C;
+  -webkit-border-color: #51493C;
+}
+
+#bootstrap-overrides .custom-card-class-index-body {
+  padding: 5px;
+}
+
+#bootstrap-overrides .custom-card-class-index-title {
+  margin-bottom: 0px;
+}
+
+#bootstrap-overrides .custom-class-index-img-container {
+  max-width: 398px;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+#bootstrap-overrides .custom-class-index-img {
+  width: 100%;
+  height: auto;
+  /* margin-top : -10px;  */
+}
+/* END OF PERSONNAGES - INDEX */
 
 /* PERSONNAGES DETAILS */
 #bootstrap-overrides .custom-personnage-title {
@@ -165,6 +258,9 @@ body { /* Entire website */
 /* SORTS */
 #bootstrap-overrides .custom-spell-item {
   border: none;
+  -moz-border: none;
+  -khtml-border: none;
+  -webkit-border: none;
   padding: 3px;
   padding-right: 0;
   padding-left: 0;
@@ -187,6 +283,9 @@ body { /* Entire website */
 #bootstrap-overrides .custom-card-header-spell-detail {
   padding: 0;
   border-bottom: none;
+  -moz-border-bottom: none;
+  -khtml-border-bottom: none;
+  -webkit-border-bottom: none;
 }
 
 #bootstrap-overrides .custom-spell-lvl-nav {
@@ -262,8 +361,17 @@ body { /* Entire website */
 
   #bootstrap-overrides .custom-autre-caracs-right-panel {
     border-left: #E5E5E5;
+    -moz-border-left: #E5E5E5;
+    -khtml-border-left: #E5E5E5;
+    -webkit-border-left: #E5E5E5;
     border-left-style: solid;
+    -moz-border-left-style: solid;
+    -khtml-border-left-style: solid;
+    -webkit-border-left-style: solid;
     border-left-width: 1px;
+    -moz-border-left-width: 1px;
+    -khtml-border-left-width: 1px;
+    -webkit-border-left-width: 1px;
   }
 
   #bootstrap-overrides .custom-autre-caracs-separator-md-down {

@@ -25,6 +25,7 @@ namespace Squidofus.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Classes = _context.Class.ToList();
             return View();
         }
         

@@ -12,7 +12,7 @@
         <img src="~/images/classes/@(classe_lowered)/pic_@(classe_lowered).gif" alt="@(classe_title)">
     </div>
     <div class="col-10 col-sm-auto custom-personnage-title">
-        <h2>@(classe_title)</h2>
+        <h2 class="text-uppercase font-weight-light">@(classe_title)</h2>
     </div>
 </div>
 <hr>
@@ -291,7 +291,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body custom-card-body">
+                            <div class="card-body custom-card-body dofus-bg-lighter">
                                 <div class="tab-content" id="nav-tabContent-spell-@(spell.IdSpell)">
                                     <img class="custom-spell-tab-img" src="~/images/classes/@(classe_lowered)/spells/@spell.ImgFilename" alt="@spell.Label"
                                             width="60" height="60">
@@ -375,7 +375,7 @@
                                                             }
                                                         </ul>
                                                         @* CONTENT *@
-                                                        <div class="tab-content" id="tab-content-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)">
+                                                        <div class="tab-content dofus-bg-light" id="tab-content-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)">
                                                             <div class="tab-pane fade show active" id="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-content-1" role="tabpanel" aria-labelledby="tab-effects-lv@(sd.SpellLvl)-@(spell.IdSpell)-nav-link-1">
                                                                 <table class="table-sm table-striped custom-table-effects">
                                                                     <tbody>
@@ -686,7 +686,7 @@
                         <span class="dofus-text-light" aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body dofus-bg-light">
+                <div class="modal-body dofus-bg-lighter">
                     <p>Liste des effets possibles pour le sort Roulette (1 tour).</p>
                     <ul class="nav nav-tabs" id="rouletteEffectsTab" role="tablist">
                         <li class="nav-item">
@@ -696,7 +696,7 @@
                             <a class="nav-link" id="roulette-effects-crit-tab" data-toggle="tab" href="#roulette-effects-crit-tab-content" role="tab" aria-controls="roulette-effects-crit-tab-content" aria-selected="false">Critiques</a>
                         </li>
                     </ul>
-                    <div class="tab-content" id="rouletteEffectsTabContent">
+                    <div class="tab-content dofus-bg-light" id="rouletteEffectsTabContent">
                         <div class="tab-pane fade show active" id="roulette-effects-std-tab-content" role="tabpanel" aria-labelledby="roulette-effects-std-tab">
                             <table class="table-sm table-striped custom-table-effects">
                                 <tbody>

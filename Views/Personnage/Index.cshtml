@@ -1,29 +1,44 @@
+@using Squidofus.Lib
 @{
-    List<string> _personnages = new List<string>{
-            "Cra",
-            "Ecaflip",
-            "Eniripsa",
-            "Enutrof",
-            "Feca",
-            "Iop",
-            "Osamodas",
-            "Pandawa",
-            "Sacrieur",
-            "Sadida",
-            "Sram",
-            "Xelor"
-        };
+    ViewData["Title"] = "Les Classes de Personnage";
 }
-<p>Classes</p>
-<br>
-<ul>
-    @foreach(string s in _personnages)
-    {
-        <li>
-            <a asp-controller="Personnage" asp-action="Details" asp-route-classe="@s.ToLower()" >@s</a>
-        </li>
-    }
-</ul>
+@* BANNER *@
+<div class="row">
+    <div class="col-12 align-self-center">
+        <!-- img class : auto center -->
+        <img class="img-fluid d-block mx-auto custom-img-banner" src="~/images/classes/common/all_classes.png" 
+            alt="Les Classes de Personnage">
+    </div>
+</div>
+@* END OF BANNER *@
+<br />
+@* TITLE *@
+<div class="row">
+    <div class="col-12 align-self-center text-center">
+        <h2 class="font-weight-light">CLASSES</h2>
+        <hr />
+    </div>
+</div>
+@* END OF TITLE *@
+<br />
 
-
-
+@* CLASSES LIST *@
+<div class="row">
+    <div class="col-12 align-self-center text-center custom-class-index-cards-list">
+        @foreach (Class c in ViewBag.Classes)
+        {
+            string classe_lowered = StringHelper.RemoveDiacritics(c.Label.ToLower());
+            <a asp-controller="Personnage" asp-action="Details" asp-route-id="@(c.IdClass)">
+                <div class="card dofus-bg-lighter custom-card-class-index">
+                    <div class="card-img-top custom-class-index-img-container">
+                        <img class="img-fluid custom-class-index-img" src="~/images/classes/@(classe_lowered)/@(classe_lowered)_bg.jpg" alt="@(c.Label)">
+                    </div>
+                    <div class="card-body custom-card-class-index-body">
+                        <h5 class="card-title custom-card-class-index-title font-weight-light">@(c.Label)</h5>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+@* END OF CLASSES LIST *@
