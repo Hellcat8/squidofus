@@ -173,18 +173,19 @@ body { /* Entire website */
 /******************************************/
 /* PERSONNAGES - INDEX */
 #bootstrap-overrides .custom-img-banner {
-  border-bottom-style: solid;
-  -moz-border-bottom-style: solid;
-  -khtml-border-bottom-style: solid;
-  -webkit-border-bottom-style: solid;
-  border-bottom-width: 1px;
-  -moz-border-bottom-width: 1px;
-  -khtml-border-bottom-width: 1px;
-  -webkit-border-bottom-width: 1px;
-  border-bottom-color: black;
-  -moz-border-bottom-color: black;
-  -khtml-border-bottom-color: black;
-  -webkit-border-bottom-color: black;
+  border-style: solid;
+  -moz-border-style: solid;
+  -khtml-border-style: solid;
+  -webkit-border-style: solid;
+  border-width: 1px;
+  -moz-border-width: 1px;
+  -khtml-border-width: 1px;
+  -webkit-border-width: 1px;
+  border-color: rgb(78, 78, 78);
+  -moz-border-color: rgb(78, 78, 78);
+  -khtml-border-color: rgb(78, 78, 78);
+  -webkit-border-color: rgb(78, 78, 78); 
+  background-color: #D9D6BB;
 }
 
 #bootstrap-overrides .custom-card-class-index {
