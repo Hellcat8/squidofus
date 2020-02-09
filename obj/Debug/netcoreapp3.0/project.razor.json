@@ -14369,8 +14369,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Equipement/Index.cshtml",
+      "TargetPath": "Views/Equipement/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/_ViewImports.cshtml",
       "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/amine/Dev/Squidofus/Squidofus/Views/Ressource/Index.cshtml",
+      "TargetPath": "Views/Ressource/Index.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,0 +1,64 @@
+@model List<Squidofus.Models.Equipement>
+
+<div class="row">
+    <div class="col-12 align-self-center">
+        @foreach (Equipement e in Model)
+        {
+            <div class="card" style="width: 47%; display: inline-block; margin: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">@e.Label (Niveau @e.Level)</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@e.IdTypeEquipementNavigation.Label</h6>
+                    <p class="card-text">@e.Description</p>
+                    @if (e.EquipementCondition.Any())
+                    {
+                        <span>CONDITIONS:</span>
+                        <table class="table-sm table-striped custom-table-effects">
+                            <tbody>
+                                    @foreach (EquipementCondition ec in e.EquipementCondition)
+                                    {
+                                        <tr>
+                                            <td>@ec.Condition</td>
+                                        </tr>
+                                    }
+                            </tbody>
+                        </table>
+                        <br />
+                    }
+
+                    @if (e.EquipementEffect.Any())
+                    {
+                        <span>EFFETS:</span>
+                        <table class="table-sm table-striped custom-table-effects">
+                            <tbody>
+                                    @foreach (EquipementEffect ee in e.EquipementEffect)
+                                    {
+                                        string classeffect = String.Empty;
+                                        if (ee.IdTypeEffect == 2)
+                                        {
+                                            classeffect = "text-success";
+                                        }
+                                        else if (ee.IdTypeEffect == 3)
+                                        {
+                                            classeffect = "text-danger";
+                                        }
+                                        
+                                        <tr>
+                                            <td style="width: 100%;" class="@classeffect">@ee.Effect
+                                            </td>
+                                            <td class="custom-table-effect-element" scope="row">
+                                                @if (ee.IdTypeCaracteristique != null)
+                                                {
+                                                    <img src="~/images/icons/@(@ee.IdTypeCaracteristiqueNavigation.Label).png"
+                                                        class="custom-table-effect-element-img" width="15" height="15">
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

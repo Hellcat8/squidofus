@@ -35,6 +35,14 @@
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Home/About.cshtml.g.cs
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Personnages/Details.cshtml.g.cs
 /Users/amine/Dev/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Personnages/Index.cshtml.g.cs
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.csprojAssemblyReference.cache
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/staticwebassets/Squidofus.StaticWebAssets.Manifest.cache
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/staticwebassets/Squidofus.StaticWebAssets.xml
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.MvcApplicationPartsAssemblyInfo.cache
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.RazorAssemblyInfo.cache
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.RazorAssemblyInfo.cs
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.AssemblyInfoInputs.cache
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.AssemblyInfo.cs
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/appsettings.Development.json
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/appsettings.json
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/Properties/launchSettings.json
@@ -84,6 +92,7 @@
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/System.Configuration.ConfigurationManager.dll
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/System.Data.SqlClient.dll
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/System.Diagnostics.DiagnosticSource.dll
+/Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/System.Drawing.Common.dll
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/System.Runtime.CompilerServices.Unsafe.dll
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/System.Security.AccessControl.dll
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/System.Security.Cryptography.ProtectedData.dll
@@ -159,14 +168,6 @@
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll
 /Users/amine/Dev/Squidofus/Squidofus/bin/Debug/netcoreapp3.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.csprojAssemblyReference.cache
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/staticwebassets/Squidofus.StaticWebAssets.Manifest.cache
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/staticwebassets/Squidofus.StaticWebAssets.xml
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.MvcApplicationPartsAssemblyInfo.cache
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.RazorAssemblyInfo.cache
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.RazorAssemblyInfo.cs
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.AssemblyInfoInputs.cache
-/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.AssemblyInfo.cs
 /Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.TagHelpers.input.cache
 /Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.TagHelpers.output.cache
 /Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.RazorCoreGenerate.cache
@@ -185,3 +186,5 @@
 /Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.csproj.CopyComplete
 /Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.dll
 /Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Squidofus.pdb
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Ressource/Index.cshtml.g.cs
+/Users/amine/Dev/Squidofus/Squidofus/obj/Debug/netcoreapp3.0/Razor/Views/Equipement/Index.cshtml.g.cs

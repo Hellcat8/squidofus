@@ -226,7 +226,7 @@
                             {
                                 <a class="list-group-item list-group-item-action custom-spell-item" id="list-spell-@(spell.IdSpell)" data-toggle="list" 
                                     href="#spell-@(spell.IdSpell)" role="tab" aria-controls="spell-@(spell.IdSpell)">
-                                    <img src="~/images/classes/@(classe_lowered)/spells/@spell.ImgFilename" alt="@spell.Label"
+                                    <img src="~/images/classes/@(classe_lowered)/spells/@spell.IdImageNavigation.ImgFilename" alt="@spell.Label"
                                                 width="45" height="45">    
                                     @spell.Label
                                 </a>
@@ -241,7 +241,7 @@
                             {
                                 <a class="list-group-item list-group-item-action custom-spell-item" id="list-spell-@(spell.IdSpell)" data-toggle="list" 
                                     href="#spell-@(spell.IdSpell)" role="tab" aria-controls="spell-@(spell.IdSpell)">
-                                    <img src="~/images/classes/@(classe_lowered)/spells/@spell.ImgFilename" alt="@spell.Label"
+                                    <img src="~/images/classes/@(classe_lowered)/spells/@spell.IdImageNavigation.ImgFilename" alt="@spell.Label"
                                                 width="45" height="45">    
                                     @spell.Label
                                 </a>
@@ -293,7 +293,7 @@
                             </div>
                             <div class="card-body custom-card-body dofus-bg-lighter">
                                 <div class="tab-content" id="nav-tabContent-spell-@(spell.IdSpell)">
-                                    <img class="custom-spell-tab-img" src="~/images/classes/@(classe_lowered)/spells/@spell.ImgFilename" alt="@spell.Label"
+                                    <img class="custom-spell-tab-img" src="~/images/classes/@(classe_lowered)/spells/@spell.IdImageNavigation.ImgFilename" alt="@spell.Label"
                                             width="60" height="60">
                                     @{
                                         foreach (SpellDetail sd in spell.SpellDetail)

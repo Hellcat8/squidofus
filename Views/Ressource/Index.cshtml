@@ -1,0 +1,27 @@
+@model List<Squidofus.Models.Ressource>
+
+<div class="row">
+    @foreach (Ressource r in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@r.Label (Niveau @r.Level)</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@r.IdTypeRessourceNavigation.Label</h6>
+                <p class="card-text">@r.Description</p>
+                @if (r.RessourceEffect.Any())
+                {
+                    <table class="table table-striped">
+                        <tbody>
+                                @foreach (RessourceEffect re in r.RessourceEffect)
+                                {
+                                    <tr>
+                                        <td>@re.Effect</td>
+                                    </tr>
+                                }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    }
+</div>

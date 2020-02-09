@@ -38,7 +38,7 @@
                                     <a class="nav-link" href="#">Bestiaire</a>
                                 </li>
                                 <li class="nav-item d-none d-md-block">
-                                    <a class="nav-link" href="#">Ressources</a>
+                                    <a class="nav-link" asp-controller="Ressource" asp-action="Index">Ressources</a>
                                 </li>
                                 <li class="nav-item dropdown d-md-none">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,13 +46,14 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">Bestiaire</a>
-                                    <a class="dropdown-item" href="#">Ressources</a>
+                                    <a class="dropdown-item" asp-controller="Ressource" asp-action="Index">Ressources</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Items
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="Equipement" asp-action="Index">Tous</a>
                                     <a class="dropdown-item" href="#">Panoplies</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">Amulettes</a>

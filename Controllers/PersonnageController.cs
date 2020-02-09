@@ -7,25 +7,38 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Squidofus.Models;
 using Squidofus.ViewModels;
-// using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Squidofus.Controllers
 {
     public class PersonnageController : Controller
     {
-        private SquidofusContext _context;
         private readonly ILogger<PersonnageController> _logger;
-
-        public PersonnageController(ILogger<PersonnageController> logger, SquidofusContext context)
+        private SquidofusContext _context;
+        public PersonnageController(SquidofusContext context, ILogger<PersonnageController> logger)
         {
-            _logger = logger;
             _context = context;
+            _logger = logger;
         }
 
         public IActionResult Index()
         {
             ViewBag.Classes = _context.Class.ToList();
+
+            // List<Image> imgs = _context.Image.ToList();
+
+            // foreach (Image img in imgs)
+            // {
+            //     var entity = _context.Spell.Where(x => x.ImgFilename.Equals(img.ImgFilename)).FirstOrDefault();
+
+            //     if (entity != null)
+            //     {
+            //         entity.IdImage = img.IdImage;
+            //         _context.Spell.Update(entity);
+            //     }
+            // }
+            // _context.SaveChanges();
+
             return View();
         }
         
@@ -41,7 +54,7 @@ namespace Squidofus.Controllers
             {
                 Class = _context.Class.Where(x => x.IdClass == id).Include(x => x.ClassBuild).ThenInclude(x => x.ClassBuildDetail).FirstOrDefault(),
                 ClassDetail = _context.ClassDetail.Where(x => x.IdClass == id).ToList(),
-                Spells = _context.Spell.Include(x => x.SpellDetail).ThenInclude(x => x.SpellEffect).Where(spell => spell.IdClass == id).ToList(),
+                Spells = _context.Spell.Include(x => x.IdImageNavigation).Include(x => x.SpellDetail).ThenInclude(x => x.SpellEffect).Where(spell => spell.IdClass == id).ToList(),
             };
 
             if (cd.Class.IdClass == 2) // Ecaflip
